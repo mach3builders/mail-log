@@ -2,12 +2,11 @@
 
 namespace Mach3builders\MailLog\Listeners;
 
-use Illuminate\Support\Arr;
+use Swift_Message;
 use Mach3builders\MailLog\Models\Mail;
 use Mach3builders\MailLog\Events\MailLogged;
-use Swift_Message;
 
-class LogSentMessage
+class LogSendingMessage
 {
     public function handle($event): void
     {
@@ -22,7 +21,6 @@ class LogSentMessage
             'cc' => $this->formatAddresses($message->getCc()),
             'bcc' => $this->formatAddresses($message->getBcc()),
             'body' => $message->getBody(),
-            'status' => 'sending',
         ]);
 
         event(new MailLogged($mail));

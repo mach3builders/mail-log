@@ -4,6 +4,7 @@ namespace Mach3builders\MailLog;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Mach3builders\MailLog\Commands\CleanMailCommand;
 
 class MailLogServiceProvider extends ServiceProvider
 {
@@ -35,14 +36,17 @@ class MailLogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/mail-log.php', 'mail-log');
 
         $this->registerEventListener();
+
+        $this->commands([
+            CleanMailCommand::class,
+        ]);
     }
 
     public function registerEventListener()
     {
         Event::listen(
-            // \Illuminate\Mail\Events\MessageSending::class,
-            \Illuminate\Mail\Events\MessageSent::class,
-            \Mach3builders\MailLog\Listeners\LogSentMessage::class
+            \Illuminate\Mail\Events\MessageSending::class,
+            \Mach3builders\MailLog\Listeners\LogSendingMessage::class
         );
     }
 }

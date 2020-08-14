@@ -3,8 +3,8 @@
 <title>Mail log</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-<link href="/backend/css/app.css" rel="stylesheet">
-<body class="" id="app">
+<link href="https://ui.mach3builders.nl/assets/css/app.css" rel="stylesheet">
+<body id="app">
     <div class="ui-layout">
         <div class="ui-layout-view">
             <main class="ui-layout-view-main">
@@ -14,7 +14,5 @@
             </main>
         </div>
     </div>
-    <script src="/backend/js/manifest.js"></script>
-    <script src="/backend/js/vendor.js"></script>
-    <script src="/backend/js/app.js"></script>
+    <script src="https://ui.mach3builders.nl/assets/js/app.js"></script>
 </body>

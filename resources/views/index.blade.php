@@ -33,7 +33,7 @@
                             @endif
                         </td>
                         <td>{{ $mail->reason }}</td>
-                        <td>{{ $mail->created_at->isoFormat('L h:m') }}</td>
+                        <td>{{ $mail->created_at->isoFormat('L H:mm') }}</td>
                     </tr>
                 @empty
                     <tr>
