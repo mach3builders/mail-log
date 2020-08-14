@@ -1,17 +1,17 @@
 {
-    "name": "spatie/:package_name",
-    "description": ":package_description",
+    "name": "mach3builders/mail-log",
+    "description": "",
     "keywords": [
-        "spatie",
-        ":package_name"
+        "mach3builders",
+        "mail-log"
     ],
-    "homepage": "https://github.com/spatie/:package_name",
+    "homepage": "https://github.com/mach3builders/mail-log",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "Robbin Benard",
+            "email": "robbinbenard@gmail.com",
+            "homepage": "https://www.mach3builders.nl",
             "role": "Developer"
         }
     ],
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Mach3builders\\MailLog\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Mach3builders\\MailLog\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,11 +47,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
-            }
+                "Mach3builders\\MailLog\\MailLogServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

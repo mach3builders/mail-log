@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Mach3builders\MailLog\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Skeleton\SkeletonServiceProvider;
+use Mach3builders\MailLog\MailLogServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -17,12 +17,18 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            MailLogServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
+        $app['config']->set('app.key', 'base64:BprTTzEwvzVQdkXvX19QR7mmpwgAsHAdyVBKd+EOBvQ=');
+
+        $app['config']->set('mail.default', 'array');
+
+        $app['config']->set('mail-log.middleware', ['web']);
+
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
             'driver' => 'sqlite',
@@ -30,9 +36,7 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        /*
-        include_once __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        include_once __DIR__.'/../database/migrations/create_mails_table.php';
+        (new \CreateMailsTable())->up();
     }
 }
