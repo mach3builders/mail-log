@@ -1,3 +1,9 @@
+## Mail log
+
+![detail](./docs/detail.png)
+
+![overview](./docs/overview.png)
+
 
 ## Installation
 
@@ -15,6 +21,7 @@ php artisan migrate
 ```
 
 You can publish the config file with:
+
 ```bash
 php artisan vendor:publish --provider="Mach3builders\MailLog\MailLogServiceProvider" --tag="config"
 ```
