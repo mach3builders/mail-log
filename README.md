@@ -1,8 +1,8 @@
 ## Mail log
 
-![detail](./docs/detail.png)
+![detail](detail.png)
 
-![overview](./docs/overview.png)
+![overview](overview.png)
 
 
 ## Installation
