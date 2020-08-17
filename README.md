@@ -67,7 +67,7 @@ protected $listen = [
 To edit the views used publish them and edit to your liking.
 
 ```bash
-php artisan vendor:publish --provider="Kordy\Ticketit\TicketitServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Mach3builders\MailLog\MailLogServiceProvider" --tag="views"
 ```
 
 ## Testing
