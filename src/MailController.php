@@ -13,7 +13,7 @@ class MailController
 
         $mails = Mail::when($search, function ($query) use ($search) {
             $query->where('to', 'like', "%{$search}%");
-        })->paginate(50);
+        })->latest()->paginate(50);
 
         return view('mail-log::index', compact('mails'));
     }
