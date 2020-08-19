@@ -9,7 +9,11 @@ class MailController
 {
     public function index(): View
     {
-        $mails = Mail::paginate(50);
+        $search = request()->query('search');
+
+        $mails = Mail::when($search, function ($query) use ($search) {
+            $query->where('to', 'like', "%{$search}%");
+        })->paginate(50);
 
         return view('mail-log::index', compact('mails'));
     }

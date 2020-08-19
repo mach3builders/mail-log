@@ -70,6 +70,23 @@ To edit the views used publish them and edit to your liking.
 php artisan vendor:publish --provider="Mach3builders\MailLog\MailLogServiceProvider" --tag="views"
 ```
 
+### Cleaning up mail logs
+
+You can run ```php artisan mail-log:clean``` command to clean up the mail log. By default this will remove all mails older than 7 days.
+
+If you want to adjust the amount of days to keep email you can adjust it in the config. or you caan update the .env file ```MAIL_LOG_KEEP_FOR_DAYS=365```.
+
+### Running the cleanup on a schedule
+
+```php
+//app/Console/Kernel.php
+
+protected function schedule(Schedule $schedule)
+{
+   $schedule->command('mail-log:clean')->daily();
+}
+```
+
 ## Testing
 
 ``` bash

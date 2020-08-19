@@ -17,6 +17,6 @@ class CleanMailCommand extends Command
 
         Mail::where('created_at', '<', now()->subDays($days))->delete();
 
-        $this->comment('All done');
+        $this->comment('Mail log cleaned');
     }
 }

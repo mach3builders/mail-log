@@ -3,6 +3,20 @@
 @section('content')
     <div class="ui-section-view-main-header">
         <div class="ui-heading">@lang('mail-log::mail.mails')</div>
+
+        <form action="{{ route('mail-log::index') }}" method="GET">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="input-group">
+                        <input name="search" class="form-control" value="{{ request()->query('search') }}" placeholder="info@example.com">
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary ui-btn-icon ui-flat"><i class="far fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 
     <div class="ui-section-view-main-body">
