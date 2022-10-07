@@ -5,6 +5,7 @@ namespace Mach3builders\MailLog;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Mach3builders\MailLog\Commands\CleanMailCommand;
+use Mach3builders\MailLog\Commands\SetupWebhooks;
 
 class MailLogServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,7 @@ class MailLogServiceProvider extends ServiceProvider
 
         $this->commands([
             CleanMailCommand::class,
+            SetupWebhooks::class,
         ]);
     }
 

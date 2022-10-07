@@ -30,18 +30,31 @@ This is the contents of the published config file:
 
 ```php
 return [
-    'route_path' => 'mails', // The route prefix to use
+    'route_path' => 'mails',
 
     'middleware' => ['web', 'auth'],
 
-    'signing_key' => env('MAIL_LOG_SIGNING_KEY'), // Mailgun signing key
+    'signing_key' => env('MAIL_LOG_SIGNING_KEY'),
+
+    'keep_mail_for_days' => env('MAIL_LOG_KEEP_FOR_DAYS', 7),
+
+    'mailgun_api_token' => env('MAILGUN_API_TOKEN'),
 ];
 ```
 
 ### Setting up the webhook
-
+#### Manual
 Go to mailgun.org and setup 3 webhooks: delivered, temporary fail and permanent fail to point at ```mails/webhook```. The package won't accept any other webhooks for now.
 
+#### Command
+If you want you could use the SetupWebhooksCommand wich triggers a Job that setups the webhooks for you
+
+```bash
+php artisan mail-log:setup-webhooks
+php artisan mail-log:setup-webhooks "mach3test.com"
+```
+
+It doesnt matter if you choose the command or manual setup route, you will still have the login in too mailgun and go to your webhooks overview.
 Copy your webhook signing key and update ```MAIL_LOG_SIGNING_KEY``` in the config.
 
 ## Usage
