@@ -15,4 +15,3 @@ Route::prefix(config('mail-log.route_path'))->group(function () {
             ->name('mail-log::show');
     });
 });
-

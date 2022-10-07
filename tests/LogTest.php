@@ -3,7 +3,6 @@
 namespace Mach3builders\MailLog\Tests;
 
 use Illuminate\Support\Facades\Mail;
-use Mach3builders\MailLog\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mach3builders\MailLog\Models\Mail as MailModel;
 

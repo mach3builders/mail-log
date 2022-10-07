@@ -3,7 +3,6 @@
 namespace Mach3builders\MailLog\Commands;
 
 use Illuminate\Console\Command;
-use Mach3builders\MailLog\Models\Mail;
 use Mach3builders\MailLog\Jobs\SetupMailgunWebhooks;
 
 class SetupWebhooks extends Command

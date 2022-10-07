@@ -2,9 +2,8 @@
 
 namespace Mach3builders\MailLog\Tests;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mach3builders\MailLog\Models\Mail;
-use Mach3builders\MailLog\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class WebhookTest extends TestCase
 {

@@ -26,7 +26,7 @@ class LogSendingMessage
         event(new MailLogged($mail));
     }
 
-    function formatAddresses(?array $addresses): ?string
+    public function formatAddresses(?array $addresses): ?string
     {
         if (! $addresses) {
             return null;

@@ -15,7 +15,8 @@ class SetupMailgunWebhooks implements ShouldQueue
 
     public function __construct(
         public string $domain
-    ) {}
+    ) {
+    }
 
     public function handle()
     {

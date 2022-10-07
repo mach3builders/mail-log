@@ -3,7 +3,6 @@
 namespace Mach3builders\MailLog;
 
 use Illuminate\Http\Response;
-use Mach3builders\MailLog\WebhookRequest;
 use Mach3builders\MailLog\Events\MailUpdated;
 
 class WebhookController

@@ -4,8 +4,8 @@ namespace Mach3builders\MailLog;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Mach3builders\MailLog\Commands\CleanMailCommand;
 use Mach3builders\MailLog\Commands\SetupWebhooks;
+use Mach3builders\MailLog\Commands\CleanMailCommand;
 
 class MailLogServiceProvider extends ServiceProvider
 {
