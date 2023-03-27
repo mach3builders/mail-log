@@ -2,30 +2,33 @@
 
 namespace Mach3builders\MailLog\Listeners;
 
-use Swift_Message;
+use Illuminate\Mail\Events\MessageSent;
 use Mach3builders\MailLog\Models\Mail;
 use Mach3builders\MailLog\Events\MailLogged;
 
 class LogSendingMessage
 {
-    public function handle($event): void
+    public function handle(MessageSent $event): void
     {
-        /** @var Swift_Message $message */
-        $message = $event->message;
+        $message = $event->sent->getOriginalMessage();
+
 
         $mail = Mail::create([
-            'message_id' => $message->getId(),
+            'message_id' => $event->sent->getMessageId(),
             'subject' => $message->getSubject(),
             'from' => $this->formatAddresses($message->getFrom()),
             'to' => $this->formatAddresses($message->getTo()),
             'cc' => $this->formatAddresses($message->getCc()),
             'bcc' => $this->formatAddresses($message->getBcc()),
-            'body' => $message->getBody(),
+            'body' => $message->getBody()->getBody(),
         ]);
 
         event(new MailLogged($mail));
     }
 
+    /**
+     * @var \Symfony\Component\Mime\Address[]
+     */
     public function formatAddresses(?array $addresses): ?string
     {
         if (! $addresses) {
@@ -33,8 +36,8 @@ class LogSendingMessage
         }
 
         return collect($addresses)
-            ->map(function ($name, $address) {
-                return ltrim($name . " <$address>");
+            ->map(function ($address) {
+                return ltrim($address->getName() . " <{$address->getAddress()}>");
             })->implode(',');
     }
 }

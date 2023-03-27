@@ -2,8 +2,9 @@
 
 namespace Mach3builders\MailLog\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Mach3builders\MailLog\MailLogServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -11,7 +12,9 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->withFactories(__DIR__.'/database/factories');
+        Factory::guessFactoryNamesUsing(
+            fn (string $modelName) => 'Mach3Builders\\MailLog\\Database\\Factories\\'.class_basename($modelName).'Factory'
+        );
     }
 
     protected function getPackageProviders($app)
@@ -37,6 +40,7 @@ class TestCase extends Orchestra
         ]);
 
         include_once __DIR__.'/../database/migrations/create_mails_table.php';
+
         (new \CreateMailsTable())->up();
     }
 }

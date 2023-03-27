@@ -47,7 +47,7 @@ class MailLogServiceProvider extends ServiceProvider
     public function registerEventListener()
     {
         Event::listen(
-            \Illuminate\Mail\Events\MessageSending::class,
+            \Illuminate\Mail\Events\MessageSent::class,
             \Mach3builders\MailLog\Listeners\LogSendingMessage::class
         );
     }

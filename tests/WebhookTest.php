@@ -54,7 +54,7 @@ class WebhookTest extends TestCase
     /** @test */
     public function webhook_updates_mail()
     {
-        $mail = factory(Mail::class)->create(['message_id' => '12345']);
+        $mail = Mail::factory()->create(['message_id' => '12345']);
 
         $this->post('mails/webhook', $this->payload())
             ->assertSessionDoesntHaveErrors()
