@@ -12,7 +12,6 @@ class LogSendingMessage
     {
         $message = $event->sent->getOriginalMessage();
 
-
         $mail = Mail::create([
             'message_id' => $event->sent->getMessageId(),
             'subject' => $message->getSubject(),
