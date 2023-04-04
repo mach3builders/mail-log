@@ -19,7 +19,7 @@ class LogSendingMessage
             'to' => $this->formatAddresses($message->getTo()),
             'cc' => $this->formatAddresses($message->getCc()),
             'bcc' => $this->formatAddresses($message->getBcc()),
-            'body' => $message->getBody()->getBody(),
+            'body' => $message->getHtmlBody(),
         ]);
 
         event(new MailLogged($mail));
